@@ -139,11 +139,8 @@ if __name__=='__main__':
     sel_featuers = [0, 36, 23, 25, 57, 49, 50, 56, 58] #'cars_mobility_apple', 'immunepct','newcases', 'newdeaths', 'newrecovered',
                                                     #'fips_car_dens', 'fips_pop_ratio', 'fips_pop_density', 'nday_accum_cases'
     perc_teen = np.expand_dims(np.sum(data_all[:, :, [38, 39]], axis=2), axis=2)/ data_all[:, :, [37]]
-                                            #ratio of 'fips_teen_cnt'+'fips_yng_cnt'+'fips_mid_cnt' to 'fips_occupants'
     perc_adult= np.expand_dims(np.sum(data_all[:, :, [40, 41]], axis=2), axis=2)/ data_all[:, :, [37]]
-                                            #ratio of 'fips_teen_cnt'+'fips_yng_cnt'+'fips_mid_cnt' to 'fips_occupants'
     perc_ret = np.expand_dims(np.sum(data_all[:, :, [42, 43, 44]], axis=2), axis=2)/ data_all[:, :, [37]]
-                                            #ratio of 'fips_teen_cnt'+'fips_yng_cnt'+'fips_mid_cnt' to 'fips_occupants'
     #perc_infected = data_all[:, :, [22]]/ data_all[:, :, [37]] #'adjcumcases'/'fips_occupants'
     data_all = np.append(data_all[:, :, sel_featuers], perc_teen, axis=2)
     data_all = np.append(data_all, perc_adult, axis=2)
